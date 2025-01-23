@@ -2,17 +2,17 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL for LinkedIn job search results for data analysts
-url = 'https://www.linkedin.com/jobs/search/?keywords=data%20analyst'
+url = "https://www.linkedin.com"
 
 # Send an HTTP request to get the page content
 response = requests.get(url)
-print(response)
+print('response code:', response,'response.headers:',response.headers )
 
 # Check if the request was successful
 if response.status_code == 200:
     # Parse the HTML content with BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
-    #print(soup) mess up :) just try once
+    #print(soup) #mess up :) just try once
 
     # Find all job listings on the page (you may need to inspect the HTML structure)
     job_elements = soup.find_all('div', class_='job-result-card')
